@@ -1,18 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <title>Ticketing Systems</title>
-</head>
-<body>
 <!--Dashboard Header-->
+<?php include(PRIVATE_PATH . 'view/template/backEnd/header.php'); ?>
 <div class="ts-d-header-area fixed-top">
     <div class="container-fluid">
         <div class="ts-d-header-main">
@@ -217,18 +205,6 @@
     </div>
     <!--    End Main Content Area-->
 </div>
+<?php include(PRIVATE_PATH . 'view/template/backEnd/footer.php'); ?>
 <!--all scripts-->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
-        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script src="assets/js/main.js"></script>
-<!--all scripts-->
-</body>
-</html>
+
