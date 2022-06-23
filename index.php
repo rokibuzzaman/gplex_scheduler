@@ -44,11 +44,11 @@
                 ]); */
 
 
-            DB()->table('patient_profile')
+            /* DB()->table('patient_profile')
                 ->delete(
                 [
                     'id' => 2
-                ]);
+                ]); */
 
         }
     }
