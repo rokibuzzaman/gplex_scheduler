@@ -30,3 +30,12 @@ function config(){
 function DB(){
     return new CRUD;
 }
+
+function basicFilter(String $data){
+    $data = htmlspecialchars($data);
+    $data = strip_tags($data);
+}
+
+function url($qPath){
+    return rtrim($_SERVER['SCRIPT_NAME'], 'index.php') . "?{$qPath}";
+}

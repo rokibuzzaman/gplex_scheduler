@@ -17,21 +17,27 @@
     
 
     if( isset($_GET['task']) ){
-        $controller = taskToControllerName($_GET['task']);        
+
+        $controller = taskToControllerName($_GET['task']);
+        $action     = isset($_GET['act']) ? $_GET['act'] : 'index';
         if(file_exists(PRIVATE_PATH . "Controller/{$controller}.php")){
             
             require_once(PRIVATE_PATH . "Controller/{$controller}.php");
-            $reqObj = new $controller;
-            $reqObj->index();
-            /* DB()->insert([
-                'fname' => 'xxxx',
+            if(method_exists($controller, $action)){
+                $reqObj = new $controller;
+                return $reqObj->$action();
+            }
+
+
+            /* var_dump(DB()->table('patient_profile')->insert([
+                'fname' => "xxxx'",
                 'lname' => 'Rahman',
                 'email' => 'a@gmail.com',
                 'mobile' => '01747984783',
                 'message' => 'Hello',
                 'created_at' => date('Y-m-d H:m:i'),
                 'updated_at' => date('Y-m-d H:m:i')
-            ]); */
+            ])); */
 
             /* DB()->table('patient_profile')
                 ->update(
@@ -52,6 +58,8 @@
 
         }
     }
+    // If url not valid
+    echo '404 Not found!';
 
 
 ?>

@@ -7,7 +7,7 @@
         </div>
         <div class="col-sm-12 form-column">
         <p style="color: red;">Please fill in below information and one of our staffs will call you back ASAP:</p>
-            <form action="success" method="post">
+            <form action="<?php echo url("task=setup-appoinment&act=store"); ?>" method="post">
                 <div class="form-group">
                     <label for="fname">First Name:</label>
                     <input type="text" id="fname" name="fname" class="form-control">
@@ -24,9 +24,7 @@
                 
                 <div class="form-group">
                 <label for="message">Message</label>
-                <textarea rows="5" class="form-control" name="message" placeholder="Message" id="ts-d-message">
-                            </textarea>
-                    
+                <textarea rows="5" class="form-control" name="message" placeholder="Message" id="ts-d-message"></textarea>
                 </div>
                 <input type="submit" value="Submit" class="btn btn-primary">
             </form>
