@@ -39,7 +39,7 @@ class SetupAppoinment{
         if($insert){
             return view('setupAppoinment.index')->with(['success'=> 'Thank you for providing your information. One of our staffs will call you back ASAP.'])->render();
         }else{
-            return view('setupAppoinment.index')->with(['errors'=> ['Cannot save! Please try again.']])->render();
+            return view('setupAppoinment.index')->with(['cannotSave'=> ['Cannot save! Please try again.']])->render();
         }
     }
 
