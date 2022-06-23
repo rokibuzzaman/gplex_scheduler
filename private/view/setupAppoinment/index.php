@@ -2,8 +2,7 @@
     <body>
         <h1>
             <?php
-                print_r($data);
-                echo $name;
+                // dd( $name );
             ?>
         </h1>
     </body>

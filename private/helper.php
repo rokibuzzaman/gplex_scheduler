@@ -1,5 +1,6 @@
 <?php
 require_once('Controller/View.php');
+require_once('db/CRUD.php');
 
 /* 
     Generate view page
@@ -20,4 +21,12 @@ function taskToControllerName($task){
     });
     return $cn;
 
+}
+
+function config(){
+    return include(PRIVATE_PATH . 'config.php');
+}
+
+function DB(){
+    return new CRUD;
 }

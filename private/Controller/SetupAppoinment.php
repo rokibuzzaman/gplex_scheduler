@@ -6,4 +6,8 @@ class SetupAppoinment{
         return view('setupAppoinment.index')->with(['data'=> $data, 'name'=>'Anisur Rahman'])->render();
     }
 
+    public function store(){
+        DB()->insert([]);
+    }
+
 }
