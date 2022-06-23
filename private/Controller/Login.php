@@ -7,28 +7,45 @@ class Login{
     }
 
 
+public function login(){
+        
+        if (isset($_POST['email'])) {            
+            $emailusername= basicFilter($_POST['email']);
+            $password= $_POST['password'];
+            if($user = $this->checkAuth($emailusername, $password)){
+                // this login var will use for the session thing
+                $_SESSION['login']  = true;
+                $_SESSION['id']     = $user['id'];
+                return view('admin.dashboard.index')->with(['success'=> ['You have Successfully loggedin']])->render();
+            }else{
+                return view('admin.login.index')->with(['errors'=> ['Oppes! You have entered invalid credentials']])->render();
+            }
+            
+        }
+    }
+
+
+    public function isLoggedIn(){
+        return true;
+    }
+
+
+
+
+    
+
     /*** for login process ***/
-		public function checkAuth($emailusername, $password){
+    public function checkAuth($emailusername, $password){
+        
+        //checking if the username is available in the table
+        $result = DB()->table('users')->select(['*'])->where(['email'=>$emailusername, 'password'=>sha1($password)])->get();
+        if (count($result) === 1) {
+            return $result[0];
+        }else{
+            return false;
+        }
 
-        	$password = sha1($password);
-			$sql2="SELECT id from users WHERE email='$emailusername' or username='$emailusername' and password='$password'";
-
-			//checking if the username is available in the table
-        	$result = mysqli_query($this->db,$sql2);
-        	$user_data = mysqli_fetch_array($result);
-        	$count_row = $result->num_rows;
-
-	        if ($count_row == 1) {
-	            // this login var will use for the session thing
-	            $_SESSION['login'] = true;
-	            $_SESSION['id'] = $user_data['id'];
-	            return true;
-	        }
-	        else{
-			    return false;
-			}
-    	}
-
+    }
     
 
 }

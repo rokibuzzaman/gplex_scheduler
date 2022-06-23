@@ -26,11 +26,11 @@
             require_once(PRIVATE_PATH . "Controller/{$controller}.php");
             if(method_exists($controller, $action)){
                 $reqObj = new $controller;
-                // return $reqObj->$action();
+                return $reqObj->$action();
             }
 
 
-            dd(DB()->table('patient_profile')->select(['*'])->get());
+            // dd(DB()->table('patient_profile')->select(['*'])->get());
 
             /* var_dump(DB()->table('patient_profile')->insert([
                 'fname' => "xxxx'",

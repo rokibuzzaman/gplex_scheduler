@@ -25,9 +25,10 @@
             <p class="ts-login-title text-center text-uppercase">
                 Schedule Management System
             </p>
+            <p style="color: red;"><?= isset($errors['fname']) ? $errors['fname'] : '' ?></p>
 
             <div class="ts-login-card-body my-5">
-                <form action="">
+                <form action="<?php echo url('task=login&act=login'); ?>" name="submit" method="POST">
                     <label class="user-input-wrp">
                         <input type="text" class="inputText" name="email" required/>
                         <span class="floating-label">User Name</span>
@@ -42,7 +43,7 @@
                         <img class="ts-eye-icon" src="assets/images/eye.svg" alt="">
                     </label>
 
-                    <button class="ts-login-btn" type="submit">Login</button>
+                    <button class="ts-login-btn" type="submit" name="submit">Login</button>
 
                 </form>
 

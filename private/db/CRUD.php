@@ -43,7 +43,7 @@ class CRUD{
         foreach($whereData as $key => $val){
             $select[] = "{$key} = '" . $this->con->real_escape_string($val) . "'";
         }
-        $this->whereData = implode(',', $select);
+        $this->whereData = implode(' AND ', $select);
         return $this;
     }
 
@@ -53,7 +53,7 @@ class CRUD{
             $set[] = "{$key} = '" . $this->con->real_escape_string($val) . "'";
         }
         $set = implode(',', $set);
-        echo $sql = "INSERT INTO {$this->tableName} SET {$set}";
+        $sql = "INSERT INTO {$this->tableName} SET {$set}";
         return $this->con->query($sql);
     }
 
