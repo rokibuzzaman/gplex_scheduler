@@ -7,6 +7,7 @@ class CRUD{
     private $select;
     private $selectSql;
     private $whereData = '';
+    private $orderData = '';
 
     public function __construct(){
         $this->con = (new Connection())->getConnection();
@@ -20,7 +21,7 @@ class CRUD{
     public function select(Array $data){
         $select = [];
         foreach($data as $key => $val){
-            $select[] = $this->con->real_escape_string($val);
+            $select[] = $val;
         }
         $this->select = implode(',', $select);
         $this->selectSql = "SELECT {$this->select} FROM {$this->tableName}";
@@ -28,11 +29,26 @@ class CRUD{
     }
 
     /**
-     * this method only works after select method call
+     * orderBy method only works after select method call
+     */
+    public function orderBy(Array $orderData){
+        $orderBy = [];
+        foreach($orderData as $key => $val){
+            $orderBy[] = "{$key} {$val}";
+        }
+        $this->orderData = implode(' ,', $orderBy);
+        return $this;
+    }
+
+    /**
+     * get method only works after select method call
      */
     public function get(){
         if(!empty($this->whereData)){
             $this->selectSql .= " WHERE {$this->whereData}";
+        }
+        if(!empty($this->orderData)){
+            $this->selectSql .= " ORDER BY {$this->orderData}";
         }
         $selectResult = $this->con->query($this->selectSql);
         return $selectResult->fetch_all(MYSQLI_ASSOC);

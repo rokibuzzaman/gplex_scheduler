@@ -23,7 +23,7 @@ class SetupAppoinment{
 
         //Return with error
         if(count($errors)){
-            return view('setupAppoinment.index')->with(['errors'=> $errors])->render();
+            return view('setupAppoinment.index')->with(['errors'=> $errors, 'old'=>$_POST])->render();
         }
 
         $insert = DB()->table('patient_profile')
