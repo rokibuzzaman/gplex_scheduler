@@ -80,6 +80,16 @@
         <!--        Work Process-->
         <div class="ts-d-workprocess-table-area mt-4">
             <div class="row">
+            <?php
+            if(isset($success)){
+                ?>
+                    <div class="col-lg-12 alert alert-success alert-dismissible"  style="margin-bottom:0">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <p style="margin-bottom:0"> <?= $success ?></p>
+                            </div>
+                <?php
+            }
+        ?>
                 <div class="col-lg-12">
                     <div class="ts-workprocess-table-main">
                         <div class="ts-workprocess-table-header">
