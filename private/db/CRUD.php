@@ -68,8 +68,7 @@ class CRUD{
         return $this->con->query($sql);
     }
 
-    public function delete(Array $whereData){
-        $where  = [];
+    public function delete(){
         $sql = "DELETE FROM {$this->tableName} WHERE {$this->where}";
         return $this->con->query($sql);
     }
