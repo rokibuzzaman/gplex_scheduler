@@ -11,10 +11,11 @@
 
 
     const PRIVATE_PATH = BASEPATH . 'private/';
-    require_once(PRIVATE_PATH . 'config.php');
     require_once(PRIVATE_PATH . 'helper.php');
     require_once(PRIVATE_PATH . 'db/CRUD.php');
-    
+
+    // Set timezone
+    date_default_timezone_set(config()['TIME_ZONE']);
 
     if( isset($_GET['task']) ){
 
@@ -25,9 +26,11 @@
             require_once(PRIVATE_PATH . "Controller/{$controller}.php");
             if(method_exists($controller, $action)){
                 $reqObj = new $controller;
-                return $reqObj->$action();
+                // return $reqObj->$action();
             }
 
+
+            DB()->table('patient_profile')->select(['*'])->get();
 
             /* var_dump(DB()->table('patient_profile')->insert([
                 'fname' => "xxxx'",
