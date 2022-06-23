@@ -29,13 +29,13 @@
             <div class="ts-login-card-body my-5">
                 <form action="">
                     <label class="user-input-wrp">
-                        <input type="text" class="inputText" required/>
+                        <input type="text" class="inputText" name="email" required/>
                         <span class="floating-label">User Name</span>
                         <img class="ts-user-icon" src="assets/images/user.svg" alt="">
                     </label>
 
                     <label class="user-input-wrp">
-                        <input type="password" class="inputText" required/>
+                        <input type="password" class="inputText" name="password" required/>
                         <span class="floating-label">Password</span>
 
                         <img class="ts-lock-icon" src="assets/images/lock.svg" alt="">
