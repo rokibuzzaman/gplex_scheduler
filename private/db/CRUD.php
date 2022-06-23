@@ -5,7 +5,7 @@ class CRUD{
     public $tableName;
     private $con;
     private $select;
-    private $selectResult;
+    private $selectSql;
     private $whereData = '';
 
     public function __construct(){
@@ -23,16 +23,19 @@ class CRUD{
             $select[] = $this->con->real_escape_string($val);
         }
         $this->select = implode(',', $select);
-        $sql = "SELECT {$this->select} FROM {$this->tableName}";
-        if(!empty($this->whereData)){
-            $sql .= " WHERE {$this->whereData}";
-        }
-        $this->selectResult = $this->con->query($sql);
+        $this->selectSql = "SELECT {$this->select} FROM {$this->tableName}";
         return $this;
     }
 
+    /**
+     * this method only works after select method call
+     */
     public function get(){
-        return $this->selectResult->fetch_all(MYSQLI_ASSOC);
+        if(!empty($this->whereData)){
+            $this->selectSql .= " WHERE {$this->whereData}";
+        }
+        $selectResult = $this->con->query($this->selectSql);
+        return $selectResult->fetch_all(MYSQLI_ASSOC);
     }
 
     public function where(Array $whereData){

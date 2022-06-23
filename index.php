@@ -30,7 +30,7 @@
             }
 
 
-            DB()->table('patient_profile')->select(['*'])->get();
+            dd(DB()->table('patient_profile')->select(['*'])->get());
 
             /* var_dump(DB()->table('patient_profile')->insert([
                 'fname' => "xxxx'",
