@@ -17,7 +17,7 @@ class CRUD{
     public function insert(Array $data){
         $set = [];
         foreach($data as $key => $val){
-            $set[] = "{$key} = '{$val}'";
+            $set[] = "{$key} = '" . $this->con->real_escape_string($val) . "'";
         }
         $set = implode(',', $set);
         echo $sql = "INSERT INTO {$this->tableName} SET {$set}";
@@ -28,10 +28,10 @@ class CRUD{
         $set    = [];
         $where  = [];
         foreach($whereData as $key => $val){
-            $where[] = "{$key} = '{$val}'";
+            $where[] = "{$key} = '" . $this->con->real_escape_string($val) . "'";
         }
         foreach($data as $key => $val){
-            $set[] = "{$key} = '{$val}'";
+            $set[] = "{$key} = '" . $this->con->real_escape_string($val) . "'";
         }
         $where  = implode(' AND ', $where);
         $set    = implode(',', $set);
@@ -42,7 +42,7 @@ class CRUD{
     public function delete(Array $whereData){
         $where  = [];
         foreach($whereData as $key => $val){
-            $where[] = "{$key} = '{$val}'";
+            $where[] = "{$key} = '" . $this->con->real_escape_string($val) . "'";
         }
         $where  = implode(' AND ', $where);
         $sql = "DELETE FROM {$this->tableName} WHERE {$where}";
