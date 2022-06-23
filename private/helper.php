@@ -34,7 +34,7 @@ function DB(){
 function basicFilter(String $data){
     $data = htmlspecialchars($data);
     $data = strip_tags($data);
-    $data = trim($data);
+    return $data = trim($data);
 }
 
 function url($qPath){
