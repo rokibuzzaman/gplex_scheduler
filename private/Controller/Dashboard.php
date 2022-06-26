@@ -1,6 +1,6 @@
 <?php
 include(PRIVATE_PATH . 'Controller/Login.php');
-include(PRIVATE_PATH . 'Controller/Appoinment.php');
+include(PRIVATE_PATH . 'Controller/Appointment.php');
 
 class Dashboard{
 
@@ -15,7 +15,7 @@ class Dashboard{
 
     public function getAppoinmentData(){
         /* Check pagination */
-        return (new Appoinment)->getList( isset($_REQUEST['page']) ? (int)$_REQUEST['page'] : null );
+        return (new Appointment)->getList( isset($_REQUEST['page']) ? (int)$_REQUEST['page'] : null );
     }
 
 }
