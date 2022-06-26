@@ -1,7 +1,3 @@
-<?php 
-    
-?>
-
 <?php include(PRIVATE_PATH . 'view/template/backEnd/header.php'); ?>
 <div class="ts-login-page-area">
     <div class="ts-login-page-main">
@@ -25,10 +21,25 @@
             <p class="ts-login-title text-center text-uppercase">
                 Schedule Management System
             </p>
-            <p style="color: red;"><?= isset($errors['fname']) ? $errors['fname'] : '' ?></p>
+            <?php
+            if(isset($errors)){
+                ?>
+                    <!-- <div class="mt-4 col-sm-12 alert alert-danger" role="alert">
+                        <?= $errors ?>
+                    </div> -->
+
+                    <div class="col-lg-12 alert alert-danger alert-dismissible"  style="margin-bottom:0">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <p style="margin-bottom:0"> <?= $errors ?></p>
+                            </div>
+                <?php
+            }
+        ?>
+
+
 
             <div class="ts-login-card-body my-5">
-                <form action="<?php echo url('task=login&act=login'); ?>" name="submit" method="POST">
+                <form action="<?php echo url('task=login&act=processLogin'); ?>" name="submit" method="POST">
                     <label class="user-input-wrp">
                         <input type="text" class="inputText" name="email" required/>
                         <span class="floating-label">User Name</span>

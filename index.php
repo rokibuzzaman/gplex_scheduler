@@ -27,6 +27,7 @@
             if(method_exists($controller, $action)){
                 $reqObj = new $controller;
                 return $reqObj->$action();
+                exit;
             }
 
 

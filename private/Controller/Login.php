@@ -7,7 +7,7 @@ class Login{
     }
 
 
-public function login(){
+    public function processLogin(){
         
         if (isset($_POST['email'])) {            
             $emailusername= basicFilter($_POST['email']);
@@ -16,9 +16,9 @@ public function login(){
                 // this login var will use for the session thing
                 $_SESSION['login']  = true;
                 $_SESSION['id']     = $user['id'];
-                return view('admin.dashboard.index')->with(['success'=> ['You have Successfully loggedin']])->render();
+                return view('admin.dashboard.index')->with(['success'=> 'You have Successfully loggedin'])->render();
             }else{
-                return view('admin.login.index')->with(['errors'=> ['Oppes! You have entered invalid credentials']])->render();
+                return view('admin.login.index')->with(['errors'=> 'Oppes! You have entered invalid credentials'])->render();
             }
             
         }
