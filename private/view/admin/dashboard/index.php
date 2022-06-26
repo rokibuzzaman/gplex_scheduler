@@ -1,32 +1,6 @@
 
 <!--Dashboard Header-->
 <?php include(PRIVATE_PATH . 'view/template/backEnd/header.php'); ?>
-<div class="ts-d-header-area fixed-top">
-    <div class="container-fluid">
-        <div class="ts-d-header-main">
-            <div class="ts-ds-logo">
-                <a href="">
-                    <img src="assets/images/logo.svg" alt="">
-                </a>
-            </div>
-            <!-- <div class="ts-user">
-                <p><span class="ts-user-greetings">Good Evening</span>
-                    <span class="ts-user-name">IBRAHIM</span>
-                    <img class="ts-user-pic" src="assets/images/admin-user.svg" alt="">
-                </p>
-            </div> -->
-            <div class="ts-user dropdown cursor-pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                <span class="ts-user-name"><?= strtoupper($_SESSION['username']) ?> </span>
-                <!-- <div class="dropdown-toggle d-flex justify-content-center align-items-center">
-                    <span class="ts-user-name">IBRAHIM </span>
-                    <img class="ts-user-pic" src="assets/images/admin-user.svg" alt="">
-                </div> -->
-                <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                </div> -->
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="ts-d-main-area">
     <!--    Sidebar-->
@@ -40,12 +14,11 @@
             </span>
         </div>
 
-
         <div class="ts-d-sidebar-navigation mt-5">
             <h6>NAVIGATION</h6>
             <ul class="ts-d-nav">
                 <li><a class="active" href="<?= url('task=dashboard') ?>"><i class="bi bi-house-door"></i> Dashboard</a></li>
-                <li><a href="profile.html"><i class="bi bi-person-fill"></i> Profile</a></li>
+                <li><a href="<?= url('task=profile') ?>"><i class="bi bi-person-fill"></i> Profile</a></li>
                 <li><a href="<?= url('task=logout') ?>"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
             </ul>
         </div>

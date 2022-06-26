@@ -1,7 +1,7 @@
 <?php
 return [
     'TIME_ZONE'             =>'asia/dhaka',
-    'PAGINATION_PER_PAGE'   => 1,
+    'PAGINATION_PER_PAGE'   => 15,
 
     'DB_NAME'               =>'gplex_scheduler',
     'DB_HOST'               =>'localhost',

@@ -1,39 +1,6 @@
-<?php include(PRIVATE_PATH . 'view/template/backEnd/header.php'); 
-//dd($_SESSION['username']);
+<?php
+    include(PRIVATE_PATH . 'view/template/backEnd/header.php');
 ?>
-
-<!--Dashboard Header-->
-<div class="ts-d-header-area fixed-top">
-    <div class="container-fluid">
-        <div class="ts-d-header-main">
-            <div class="ts-ds-logo">
-                <a href="">
-                    <img src="assets/images/logo.svg" alt="">
-                </a>
-            </div>
-            <!-- <div class="ts-user">
-                <p><span class="ts-user-greetings">Good Evening</span>
-                    <span class="ts-user-name">IBRAHIM</span>
-                    <img class="ts-user-pic" src="assets/images/admin-user.svg" alt="">
-                </p>
-            </div> -->
-
-            <div class="ts-user dropdown cursor-pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                <div class="dropdown-toggle d-flex justify-content-center align-items-center">
-                    <!-- <span class="ts-user-greetings">Good Evening</span> -->
-                    <span class="ts-user-name"><?php echo $_SESSION['name'];?> </span>
-                    <img class="ts-user-pic" src="assets/images/admin-user.svg" alt="">
-                </div>
-
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="<?= url('task=logout') ?>">Logout</a>
-                  
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="ts-d-main-area">
     <!--    Sidebar-->

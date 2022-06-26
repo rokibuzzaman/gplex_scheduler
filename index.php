@@ -22,8 +22,8 @@
 
     if( isset($_GET['task']) ){
 
-        $controller = taskToControllerName($_GET['task']);
-        $action     = isset($_GET['act']) ? $_GET['act'] : 'index';
+        $controller = taskToControllerName(basicFilter(cleaninjections($_GET['task'])));
+        $action     = isset($_GET['act']) ? basicFilter(cleaninjections($_GET['act'])) : 'index';
         if(file_exists(PRIVATE_PATH . "Controller/{$controller}.php")){
             
             require_once(PRIVATE_PATH . "Controller/{$controller}.php");
