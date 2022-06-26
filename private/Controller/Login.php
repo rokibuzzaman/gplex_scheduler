@@ -10,7 +10,7 @@ class Login{
         
         /* Clean injection */
         foreach($_POST as $key => $value){
-            $_POST[$key] = _cleaninjections(trim($value));
+            $_POST[$key] = cleaninjections(trim($value));
         }
 
         if (isset($_POST['email'])) {            
@@ -36,7 +36,7 @@ class Login{
             return true;
         }else{
             /* Not Logged in */
-            header("Location: ../login/");
+            header("Location: " . url('task=login'));
             exit();
         }
     }

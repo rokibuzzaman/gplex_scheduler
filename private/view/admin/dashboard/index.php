@@ -15,15 +15,15 @@
                     <img class="ts-user-pic" src="assets/images/admin-user.svg" alt="">
                 </p>
             </div> -->
+                <a href="<?= url('task=logout') ?>">Logout</a>
             <div class="ts-user dropdown cursor-pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
                 <div class="dropdown-toggle d-flex justify-content-center align-items-center">
                     <span class="ts-user-greetings">Good Evening</span>
                     <span class="ts-user-name">IBRAHIM </span>
                     <img class="ts-user-pic" src="assets/images/admin-user.svg" alt="">
                 </div>
-
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="<?= url('task=logout') ?>">Logout</a>
                   
                 </div>
 
@@ -93,7 +93,7 @@
                 <div class="col-lg-12">
                     <div class="ts-workprocess-table-main">
                         <div class="ts-workprocess-table-header">
-                            <p class="ts-components-title text-uppercase">WORK PROCESS</p>
+                            <p class="ts-components-title text-uppercase">Appointment List</p>
                             <span><i class="bi bi-three-dots-vertical"></i></span>
                         </div>
                         <div class="ts-workprocess-table-content table-responsive">
@@ -106,21 +106,23 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">Mobile Number</th>
                                     <th scope="col">Message</th>
-                                   
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th class="text-center" scope="row">1</th>
-                                    <td> <?= isset($success) ?></td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                   
-                                </tr>
-                                
-                               
+                                    <?php
+                                        foreach($appointments as $appointment){
+                                            ?>
+                                                <tr>
+                                                    <th class="text-center"></th>
+                                                    <td> <?= $appointment['fname'] ?></td>
+                                                    <td> <?= $appointment['lname'] ?></td>
+                                                    <td> <?= $appointment['email'] ?? '-' ?></td>
+                                                    <td> <?= $appointment['mobile'] ?></td>
+                                                    <td> <?= $appointment['message'] ?? '-' ?></td>
+                                                </tr>
+                                            <?php
+                                        }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>

@@ -1,9 +1,20 @@
 <?php
+include(PRIVATE_PATH . 'Controller/Login.php');
+include(PRIVATE_PATH . 'Controller/Appoinment.php');
+
 class Dashboard{
 
+    public function __construct(){
+        (new Login)->isLoggedIn();
+    }
+
     public function index(){
-        $data = ['name' => 'Anis'];
-        return view('admin.dashboard.index')->with(['data'=> $data, 'name'=>'Anisur Rahman'])->render();
+        $appointments = $this->getAppoinmentData();
+        return view('admin.dashboard.index')->with(['appoint    ments'=> $appointments])->render();
+    }
+
+    public function getAppoinmentData(){
+        return (new Appoinment)->getList();
     }
 
 }

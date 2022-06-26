@@ -5,7 +5,7 @@ require_once('db/CRUD.php');
 /**
  * Clean user data
  */
-function _cleaninjections($test) {
+function cleaninjections($test) {
 
     $find = array(
         "/[\r\n]/", 
@@ -21,7 +21,7 @@ function _cleaninjections($test) {
     );
     $ret = preg_replace($find, "", $test);
     return $ret;
-    
+
 }
 
 function basicFilter(String $data){
