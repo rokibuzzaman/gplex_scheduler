@@ -2,8 +2,10 @@
 class Profile{
 
     public function index(){
-        $data = ['name' => 'Anis'];
-        return view('admin.profile.index')->with(['data'=> $data, 'name'=>'Anisur Rahman'])->render();
+        //$data = [];
+        $data = DB()->table('users')->select(['*'])->get();
+        //dd($data[0]['name']);
+        return view('admin.profile.index')->with(['data'=> $data])->render();
     }
 
 }

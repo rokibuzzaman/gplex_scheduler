@@ -83,7 +83,7 @@
                     <div class="col-lg-3 col-sm-3">
                         <div class="ts-d-profile-content">
                             <div class="ts-d-profile-avatar">
-                                <img src="assets/images/person.png" alt="">
+                                <!-- <img src="assets/images/person.png" alt=""> -->
                             </div>
                         </div>
                     </div>
@@ -92,30 +92,25 @@
                             <div class="ts-d-profile-meta">
 
                                 <div class="ts-d-profile-designation mb-4">
-                                    <h3 class="text-uppercase">ibrahim momin khan</h3>
-                                    <h6 class="text-capitalize">Corporate Marketing Sales</h6>
+                                    <p><span class="text-uppercase" style="font-size:20px"> <?php echo $data[0]['name'];?></span>
+                                    <span class="ts-d-profile-edit">edit</span></p>
+                                    <!-- <h6 class="text-capitalize">Corporate Marketing Sales</h6> -->
                                 </div>
 
                                 <div class="ts-d-profile-details">
                                     <p>
                                         <span class="ts-d-personal">
-                                            <i class="bi bi-calendar"></i> 30 November, 1993
+                                            <i class="bi bi-calendar"></i><?php echo $data[0]['username'];?>
                                         </span>
-                                        <span class="ts-d-profile-edit">edit</span>
+                                        <!-- <span class="ts-d-profile-edit">edit</span> -->
                                     </p>
-                                    <p>
-                                        <span class="ts-d-personal"><i class="bi bi-telephone-fill"></i> +880 1714 000000</span>
-                                        <span class="ts-d-profile-edit">edit</span>
-                                    </p>
+                                   
                                     <p>
                                         <span class="ts-d-personal"><i
-                                                class="bi bi-envelope"></i> ibrahim@genusys.us</span>
-                                        <span class="ts-d-profile-edit">edit</span>
+                                                class="bi bi-envelope"></i> <?php echo $data[0]['email'];?></span>
+                                        <!-- <span class="ts-d-profile-edit">edit</span> -->
                                     </p>
-                                    <p>
-                                        <span class="ts-d-personal"><i class="bi bi-house-door"></i> Farmgate, Dhaka-1215</span>
-                                        <span class="ts-d-profile-edit">edit</span>
-                                    </p>
+                                    
                                 </div>
 
                             </div>
