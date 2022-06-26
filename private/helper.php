@@ -2,6 +2,34 @@
 require_once('Controller/View.php');
 require_once('db/CRUD.php');
 
+/**
+ * Clean user data
+ */
+function _cleaninjections($test) {
+
+    $find = array(
+        "/[\r\n]/", 
+        "/%0[A-B]/",
+        "/%0[a-b]/",
+        "/bcc\:/i",
+        "/Content\-Type\:/i",
+        "/Mime\-Version\:/i",
+        "/cc\:/i",
+        "/from\:/i",
+        "/to\:/i",
+        "/Content\-Transfer\-Encoding\:/i"
+    );
+    $ret = preg_replace($find, "", $test);
+    return $ret;
+}
+
+function basicFilter(String $data){
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return strip_tags($data);
+}
+
 /* 
     Generate view page
 */
@@ -31,11 +59,6 @@ function DB(){
     return new CRUD;
 }
 
-function basicFilter(String $data){
-    $data = htmlspecialchars($data);
-    $data = strip_tags($data);
-    return $data = trim($data);
-}
 
 function url($qPath){
     return rtrim($_SERVER['SCRIPT_NAME'], 'index.php') . "?{$qPath}";
