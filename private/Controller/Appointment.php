@@ -1,5 +1,5 @@
 <?php
-class Appoinment{
+class Appointment{
 
     private $requiredFields = [
         'First Name'=>'fname',

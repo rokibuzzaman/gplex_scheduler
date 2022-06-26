@@ -59,7 +59,7 @@ class CRUD{
     /**
      * For pagination
      */
-    public function getFrom($startFrom = null){
+    public function getFrom($pageNum = null){
         if(!empty($this->whereData)){
             $this->selectSql .= " WHERE {$this->whereData}";
         }
@@ -67,8 +67,10 @@ class CRUD{
             $this->selectSql .= " ORDER BY {$this->orderData}";
         }
         $offest = '';
-        if($startFrom){
-            $offest = "OFFSET " . $startFrom;
+        $countStartFrom = 0;// Row count start from
+        if($pageNum > 0){
+            $countStartFrom = ($pageNum * $this->perPage) - $this->perPage;
+            $offest = "OFFSET " . (($pageNum * $this->perPage) - $this->perPage);
         }
         $this->selectSql .= " LIMIT {$this->perPage} {$offest}";
         $selectResult = $this->con->query($this->selectSql);
@@ -76,10 +78,10 @@ class CRUD{
         /* Counting page */
         $count = $this->con->query("SELECT COUNT(*) as count FROM {$this->tableName}")->fetch_all(MYSQLI_ASSOC)[0]['count'];
         return [
-            'page_start'    => $startFrom,
-            'per_page'      => $this->perPage,
-            'total_page'    => ceil( $count / $this->perPage),
-            'data'          => $selectResult->fetch_all(MYSQLI_ASSOC)
+            'count_start_from'  => $countStartFrom + 1,
+            'per_page'          => $this->perPage,
+            'total_page'        => (int)ceil( $count / $this->perPage),
+            'data'              => $selectResult->fetch_all(MYSQLI_ASSOC)
         ];
     }
 

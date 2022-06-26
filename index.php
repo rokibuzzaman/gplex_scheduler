@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 	require_once('./vendor/autoload.php');
     define('DEBUG', false);
     if (DEBUG) {
@@ -32,40 +33,16 @@
                 exit;
             }
 
-
-            // dd(DB()->table('patient_profile')->select(['*'])->orderBy(['created_at'=>'desc'])->get());
-
-            /* var_dump(DB()->table('patient_profile')->insert([
-                'fname' => "xxxx'",
-                'lname' => 'Rahman',
-                'email' => 'a@gmail.com',
-                'mobile' => '01747984783',
-                'message' => 'Hello',
-                'created_at' => date('Y-m-d H:m:i'),
-                'updated_at' => date('Y-m-d H:m:i')
-            ])); */
-
-            /* DB()->table('patient_profile')
-                ->update(
-                [
-                    'id' => 2
-                ],
-                [
-                    'fname' => 'DDDDDD',
-                    'lname' => 'Rahman'
-                ]); */
-
-
-            /* DB()->table('patient_profile')
-                ->delete(
-                [
-                    'id' => 2
-                ]); */
-
         }
     }
     // If url not valid
     echo '404 Not found!';
 
-
 ?>
+
+<br>
+<br>
+<br>
+<a href="<?= url('task=appointment') ?>">Setup Appointment</a>
+<br>
+<a href="<?= url('task=login') ?>">Admin Login</a>
