@@ -20,20 +20,10 @@
                     <img src="assets/images/logo.svg" alt="">
                 </a>
             </div>
-            <!-- <div class="ts-user">
-                <p><span class="ts-user-greetings">Good Evening</span>
-                    <span class="ts-user-name">IBRAHIM</span>
-                    <img class="ts-user-pic" src="assets/images/admin-user.svg" alt="">
-                </p>
-            </div> -->
-            <div class="ts-user dropdown cursor-pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                <span class="ts-user-name"><?= strtoupper($_SESSION['username']) ?> </span>
-                <!-- <div class="dropdown-toggle d-flex justify-content-center align-items-center">
-                    <span class="ts-user-name">IBRAHIM </span>
-                    <img class="ts-user-pic" src="assets/images/admin-user.svg" alt="">
-                </div> -->
-                <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                </div> -->
+            <div class="ts-user " id="dropdownMenuButton" aria-expanded="false">
+                <div class=" d-flex justify-content-center align-items-center">
+                    <span class="ts-user-name"><?= strtoupper($_SESSION['username'] ?? '') ?></span>
+                </div>
             </div>
         </div>
     </div>
