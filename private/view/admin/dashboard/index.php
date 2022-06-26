@@ -101,106 +101,26 @@
                                 <thead>
                                 <tr>
                                     <th class="text-center" scope="col"> SL.No</th>
-                                    <th scope="col">Product</th>
-                                    <th scope="col">Subject</th>
-                                    <th scope="col">Creator</th>
-                                    <th scope="col">Client ID</th>
-                                    <th scope="col">TIME</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Details</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Mobile Number</th>
+                                    <th scope="col">Message</th>
+                                   
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <th class="text-center" scope="row">1</th>
-                                    <td>Mark</td>
+                                    <td> <?= isset($success) ?></td>
                                     <td>Otto</td>
                                     <td>@mdo</td>
                                     <td>Mark</td>
                                     <td>Otto</td>
-                                    <td>
-                                        <div class="ts-status-area">
-                                            <span class="ts-status-text-done">Done</span>
-                                            <span class="ts-status-done"></span>
-                                        </div>
-                                    </td>
-                                    <td>Otto</td>
+                                   
                                 </tr>
-                                <tr>
-                                    <th class="text-center" scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>
-                                        <div class="ts-status-area">
-                                            <span class="ts-status-text-expired">Expired</span>
-                                            <span class="ts-status-expired"></span>
-                                        </div>
-                                    </td>
-                                    <td>Otto</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-center" scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>
-                                        <div class="ts-status-area">
-                                            <span class="ts-status-text-pending">Pending</span>
-                                            <span class="ts-status-pending"></span>
-                                        </div>
-                                    </td>
-                                    <td>Otto</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-center" scope="row">4</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>
-                                        <div class="ts-status-area">
-                                            <span class="ts-status-text-process">Process</span>
-                                            <span class="ts-status-process"></span>
-                                        </div>
-                                    </td>
-                                    <td>Otto</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-center" scope="row">5</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>
-                                        <div class="ts-status-area">
-                                            <span class="ts-status-text-done">Done</span>
-                                            <span class="ts-status-done"></span>
-                                        </div>
-                                    </td>
-                                    <td>Otto</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-center" scope="row">6</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>
-                                        <div class="ts-status-area">
-                                            <span class="ts-status-text-process">Process</span>
-                                            <span class="ts-status-process"></span>
-                                        </div>
-                                    </td>
-                                    <td>Otto</td>
-                                </tr>
+                                
+                               
                                 </tbody>
                             </table>
                         </div>
