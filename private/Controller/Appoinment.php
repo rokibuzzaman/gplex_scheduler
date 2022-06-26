@@ -1,11 +1,18 @@
 <?php
-class SetupAppoinment{
+class Appoinment{
 
     private $requiredFields = [
         'First Name'=>'fname',
         'Last Name'=>'lname',
         'Mobile'=>'mobile'
     ];
+
+    public function getList(){
+        return DB()->table('patient_profile')
+                    ->select(['*'])
+                    ->orderBy(['created_at'=>'desc'])
+                    ->get();
+    }
 
     public function index(){
         $data = ['name' => 'Anis'];

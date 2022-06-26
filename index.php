@@ -7,7 +7,9 @@
         error_reporting(E_ALL);
     }
     define('BASEPATH', dirname(__FILE__)."/");
-
+    if(session_id() == ''){
+        session_start();
+    }
 
 
     const PRIVATE_PATH = BASEPATH . 'private/';

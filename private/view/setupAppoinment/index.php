@@ -26,8 +26,8 @@
             <h2>Patient Profile</h2> 
         </div>
         <div class="col-sm-12 form-column">
-        <p">Please fill in below information and one of our staffs will call you back ASAP:</p>
-            <form action="<?php echo url("task=setup-appoinment&act=store"); ?>" method="post">
+        <p">Please fill in below information and one of our staffs will call you back ASAP</p>
+            <form action="<?php echo url("task=appoinment&act=store"); ?>" method="post">
                 <div class="form-group">
                     <label for="fname">First Name:</label>
                     <input type="text" id="fname" name="fname" class="form-control" value="<?= $old['fname'] ?? '' ?>">
