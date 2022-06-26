@@ -8,9 +8,11 @@ class CRUD{
     private $selectSql;
     private $whereData = '';
     private $orderData = '';
+    private $perPage;
 
     public function __construct(){
-        $this->con = (new Connection())->getConnection();
+        $this->perPage  = config()['PAGINATION_PER_PAGE'] ?? 5;
+        $this->con      = (new Connection())->getConnection();
     }
 
     public function table($tableName){
@@ -52,6 +54,33 @@ class CRUD{
         }
         $selectResult = $this->con->query($this->selectSql);
         return $selectResult->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * For pagination
+     */
+    public function getFrom($startFrom = null){
+        if(!empty($this->whereData)){
+            $this->selectSql .= " WHERE {$this->whereData}";
+        }
+        if(!empty($this->orderData)){
+            $this->selectSql .= " ORDER BY {$this->orderData}";
+        }
+        $offest = '';
+        if($startFrom){
+            $offest = "OFFSET " . $startFrom;
+        }
+        $this->selectSql .= " LIMIT {$this->perPage} {$offest}";
+        $selectResult = $this->con->query($this->selectSql);
+
+        /* Counting page */
+        $count = $this->con->query("SELECT COUNT(*) as count FROM {$this->tableName}")->fetch_all(MYSQLI_ASSOC)[0]['count'];
+        return [
+            'page_start'    => $startFrom,
+            'per_page'      => $this->perPage,
+            'total_page'    => ceil( $count / $this->perPage),
+            'data'          => $selectResult->fetch_all(MYSQLI_ASSOC)
+        ];
     }
 
     public function where(Array $whereData){
