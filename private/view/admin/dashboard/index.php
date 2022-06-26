@@ -48,8 +48,8 @@
         <div class="ts-d-sidebar-navigation mt-5">
             <h6>NAVIGATION</h6>
             <ul class="ts-d-nav">
-                <li><a class="active" href="dashboard.html"><i class="bi bi-house-door"></i> Dashboard</a></li>
-                <li><a href="profile.html"><i class="bi bi-person-fill"></i> Profile</a></li>
+                <li><a class="active" href="<?php echo url('task=dashboard'); ?>"><i class="bi bi-house-door"></i> Dashboard</a></li>
+                <li><a href="<?php echo url('task=profile'); ?>"><i class="bi bi-person-fill"></i> Profile</a></li>
                 <li><a href="profile.php"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
                 
             </ul>
