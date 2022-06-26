@@ -21,6 +21,7 @@ function _cleaninjections($test) {
     );
     $ret = preg_replace($find, "", $test);
     return $ret;
+    
 }
 
 function basicFilter(String $data){
