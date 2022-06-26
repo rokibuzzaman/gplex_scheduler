@@ -110,10 +110,11 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                        $serialStart = 1;
                                         foreach($appointments as $appointment){
                                             ?>
                                                 <tr>
-                                                    <th class="text-center"></th>
+                                                    <th class="text-center"><?= $serialStart++ ?></th>
                                                     <td> <?= $appointment['fname'] ?></td>
                                                     <td> <?= $appointment['lname'] ?></td>
                                                     <td> <?= $appointment['email'] ?? '-' ?></td>
