@@ -15,11 +15,11 @@
                     <img class="ts-user-pic" src="assets/images/admin-user.svg" alt="">
                 </p>
             </div> -->
-                <a href="<?= url('task=logout') ?>">Logout</a>
+                <!-- <a href="<?= url('task=logout') ?>">Logout</a> -->
             <div class="ts-user dropdown cursor-pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
                 <div class="dropdown-toggle d-flex justify-content-center align-items-center">
-                    <span class="ts-user-greetings">Good Evening</span>
-                    <span class="ts-user-name">IBRAHIM </span>
+                    
+                    <span class="ts-user-name"><?php echo $_SESSION['name'];?> </span>
                     <img class="ts-user-pic" src="assets/images/admin-user.svg" alt="">
                 </div>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
@@ -50,7 +50,7 @@
             <ul class="ts-d-nav">
                 <li><a class="active" href="<?php echo url('task=dashboard'); ?>"><i class="bi bi-house-door"></i> Dashboard</a></li>
                 <li><a href="<?php echo url('task=profile'); ?>"><i class="bi bi-person-fill"></i> Profile</a></li>
-                <li><a href="profile.php"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                <li><a href="<?= url('task=logout') ?>"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
                 
             </ul>
         </div>
@@ -67,10 +67,10 @@
                 <span class="bi bi-list"></span>
                 <span class="ts-d-acc-name-text text-uppercase">DASHBOARD</span>
             </div>
-            <div class="ts-d-date">
+            <!-- <div class="ts-d-date">
                 <input type="text" id="datepicker">
                 <span class="bi bi-filter ts-d-filter"></span>
-            </div>
+            </div> -->
         </div>
         <!--       End Header Components-->
 

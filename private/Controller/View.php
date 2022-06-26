@@ -2,7 +2,7 @@
 class View{
 
     private $viewPath;
-    private $data;
+    private $data=null;
 
     public function __construct($viewPath){
         $this->viewPath = $this->generateViewFilePath($viewPath);
@@ -18,7 +18,7 @@ class View{
     }
 
     public function render(){
-        extract($this->data);
+        $this->data ? extract($this->data) : '';
         include($this->viewPath);
     }
 

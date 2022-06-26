@@ -20,6 +20,8 @@ class Login{
                 $_SESSION['login']      = true;
                 $_SESSION['id']         = $user['id'];
                 $_SESSION['username']   = $user['username'];
+                $_SESSION['name']       = $user['name'];
+                $_SESSION['email']      = $user['email'];
                 /* Redirect to dashboard */
                 header('Location: ' . url('task=dashboard'));
             }else{

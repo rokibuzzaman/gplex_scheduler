@@ -1,4 +1,7 @@
-<?php include(PRIVATE_PATH . 'view/template/backEnd/header.php'); ?>
+<?php include(PRIVATE_PATH . 'view/template/backEnd/header.php'); 
+//dd($_SESSION['username']);
+?>
+
 <!--Dashboard Header-->
 <div class="ts-d-header-area fixed-top">
     <div class="container-fluid">
@@ -17,13 +20,13 @@
 
             <div class="ts-user dropdown cursor-pointer" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
                 <div class="dropdown-toggle d-flex justify-content-center align-items-center">
-                    <span class="ts-user-greetings">Good Evening</span>
-                    <span class="ts-user-name">IBRAHIM </span>
+                    <!-- <span class="ts-user-greetings">Good Evening</span> -->
+                    <span class="ts-user-name"><?php echo $_SESSION['name'];?> </span>
                     <img class="ts-user-pic" src="assets/images/admin-user.svg" alt="">
                 </div>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="<?= url('task=logout') ?>">Logout</a>
                   
                 </div>
 
@@ -50,7 +53,7 @@
             <ul class="ts-d-nav">
                 <li><a class="active" href="<?php echo url('task=dashboard'); ?>"><i class="bi bi-house-door"></i> Dashboard</a></li>
                 <li><a href="<?php echo url('task=profile'); ?>"><i class="bi bi-person-fill"></i> Profile</a></li>
-                <li><a href="profile.php"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                <li><a href="<?= url('task=logout') ?>"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
                 
             </ul>
         </div>
@@ -92,22 +95,22 @@
                             <div class="ts-d-profile-meta">
 
                                 <div class="ts-d-profile-designation mb-4">
-                                    <p><span class="text-uppercase" style="font-size:20px"> <?php echo $data[0]['name'];?></span>
-                                    <span class="ts-d-profile-edit">edit</span></p>
-                                    <!-- <h6 class="text-capitalize">Corporate Marketing Sales</h6> -->
+                                    <p><span class="text-uppercase" style="font-size:20px"> <?php echo $_SESSION['name'];?></span>
+                                    <!-- <span class="ts-d-profile-edit">edit</span></p> -->
+                                   
                                 </div>
 
                                 <div class="ts-d-profile-details">
                                     <p>
                                         <span class="ts-d-personal">
-                                            <i class="bi bi-calendar"></i><?php echo $data[0]['username'];?>
+                                            <i class="bi bi-calendar"></i><?php echo $_SESSION['username'];?>
                                         </span>
                                         <!-- <span class="ts-d-profile-edit">edit</span> -->
                                     </p>
                                    
                                     <p>
                                         <span class="ts-d-personal"><i
-                                                class="bi bi-envelope"></i> <?php echo $data[0]['email'];?></span>
+                                                class="bi bi-envelope"></i> <?php echo $_SESSION['email'];?></span>
                                         <!-- <span class="ts-d-profile-edit">edit</span> -->
                                     </p>
                                     
