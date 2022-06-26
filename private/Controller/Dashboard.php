@@ -10,7 +10,7 @@ class Dashboard{
 
     public function index(){
         $appointments = $this->getAppoinmentData();
-        return view('admin.dashboard.index')->with(['appoint    ments'=> $appointments])->render();
+        return view('admin.dashboard.index')->with(['appointments'=> $appointments])->render();
     }
 
     public function getAppoinmentData(){
