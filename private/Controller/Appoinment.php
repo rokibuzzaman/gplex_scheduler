@@ -7,11 +7,11 @@ class Appoinment{
         'Mobile'=>'mobile'
     ];
 
-    public function getList(){
+    public function getList($pageNumber = 0){
         return DB()->table('patient_profile')
                     ->select(['*'])
                     ->orderBy(['created_at'=>'desc'])
-                    ->get();
+                    ->getFrom($pageNumber);
     }
 
     public function index(){

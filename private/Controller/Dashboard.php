@@ -9,12 +9,13 @@ class Dashboard{
     }
 
     public function index(){
-        $appointments = $this->getAppoinmentData();
-        return view('admin.dashboard.index')->with(['appointments'=> $appointments])->render();
+        $appointmentData = $this->getAppoinmentData();
+        return view('admin.dashboard.index')->with(['appointmentData'=> $appointmentData])->render();
     }
 
     public function getAppoinmentData(){
-        return (new Appoinment)->getList();
+        /* Check pagination */
+        return (new Appoinment)->getList( isset($_REQUEST['page']) ? (int)$_REQUEST['page'] : null );
     }
 
 }
