@@ -111,7 +111,7 @@
                                 <tbody>
                                     <?php
                                         $serialStart = 1;
-                                        dd( $appointmentData );
+                                        //dd( $appointmentData );
                                         foreach($appointmentData['data'] as $appointment){
                                             ?>
                                                 <tr>
